@@ -43,3 +43,5 @@ class ReservaInvalidaError(ErrorSistema):
     def __init__(self, mensaje="Reserva inválida"):
         self.mensaje = mensaje
         super().__init__(self.mensaje)
+        # buenas tardes 
+        
