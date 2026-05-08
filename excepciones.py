@@ -13,9 +13,9 @@ class DatosInvalidosError(ErrorSistema):
     def __init__(self, campo, mensaje="Los datos proporcionados son inválidos."):
         self.campo = campo
         self.mensaje = f"Error en el campo '{campo}': {mensaje}"
-        super().__init__(self.mensaje).
-         # Buenas noches 
-
+        super().__init__(self.mensaje)
+        
+         # Buenas noches
         
         
         
