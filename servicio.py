@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-#Creacion de la clase padre Servicio con nombre y costo base
+#Creacion de la clase padre Servicio con los atibutos nombre y costo base
 class Servicio(ABC):
     def __init__(self, nombre_base, costo_base):
         self.nombre_base = nombre_base
