@@ -1,0 +1,82 @@
+from excepciones import ServicioNoDisponibleError, DatosInvalidosError
+from logger import log_error, log_info
+
+def procesar_solicitud(datos):
+    try:
+        log_info("Iniciando procesamiento de solicitud...")
+        
+        # Simulación de validación
+        if not datos:
+            raise DatosInvalidosError("entrada", "La lista de datos está vacía.")
+            
+        # Simulación de fallo de servicio
+        raise ServicioNoDisponibleError("El servidor de reservas no responde.")
+
+    except DatosInvalidosError as de:
+        print(f"Advertencia: {de.mensaje}")
+        log_error(de)
+    except ServicioNoDisponibleError as se:
+        print(f"Error de conexión: {se.mensaje}")
+        log_error(se)
+    except Exception as e:
+        print(f"Error inesperado: {e}")
+        log_error(f"Inesperado: {e}")
+    else:
+        print("Procesamiento completado con éxito.")
+    finally:
+        # Esto garantiza que el sistema siempre esté listo para la siguiente tarea
+        print("Sistema listo para la siguiente operación.")
+
+# Prueba de ejecución sin detener el programa
+procesar_solicitud({})[2026-05-09 21:25:09] INFO: Inicio de demo en main.py
+[2026-05-09 21:25:09] ERROR: Error al procesar reserva
+[2026-05-09 21:25:09] ERROR: Correo inválido
+[2026-05-09 21:25:09] ERROR: Error al procesar reserva
+[2026-05-09 21:25:09] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:25:09] ERROR: division by zero
+[2026-05-09 21:25:09] INFO: Fin de demo en main.py
+[2026-05-09 21:25:29] INFO: Inicio de demo en main.py
+[2026-05-09 21:25:29] ERROR: Error al procesar reserva
+[2026-05-09 21:25:29] ERROR: Correo inválido
+[2026-05-09 21:25:29] ERROR: Error al procesar reserva
+[2026-05-09 21:25:29] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:25:29] ERROR: El impuesto no puede ser 0
+[2026-05-09 21:25:29] INFO: Fin de demo en main.py
+[2026-05-09 21:25:42] INFO: Inicio de demo en main.py
+[2026-05-09 21:25:42] ERROR: Error al procesar reserva
+[2026-05-09 21:25:42] ERROR: Correo inválido
+[2026-05-09 21:25:42] ERROR: Error al procesar reserva
+[2026-05-09 21:25:42] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:25:42] ERROR: El impuesto no puede ser 0
+[2026-05-09 21:25:42] INFO: Fin de demo en main.py
+[2026-05-09 21:26:05] INFO: Inicio de demo en main.py
+[2026-05-09 21:26:05] ERROR: Error al procesar reserva: ServicioTrasporte.calcular_costo() got an unexpected keyword argument 'noches'
+[2026-05-09 21:26:05] ERROR: Correo inválido
+[2026-05-09 21:26:05] ERROR: Error al procesar reserva: ServicioAlojamiento.calcular_costo() got an unexpected keyword argument 'distancia'
+[2026-05-09 21:26:05] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:26:05] ERROR: El impuesto no puede ser 0
+[2026-05-09 21:26:05] INFO: Fin de demo en main.py
+[2026-05-09 21:30:23] INFO: Inicio del sistema de simulaciones.
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: El nombre no puede estar vacío
+[2026-05-09 21:30:23] ERROR: Correo inválido
+[2026-05-09 21:30:23] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] ERROR: Error al procesar reserva
+[2026-05-09 21:30:23] INFO: Fin del ciclo de simulaciones.
+[2026-05-09 21:39:45] INFO: Inicio del sistema de simulaciones.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 1 procesada.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 2 procesada.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 3 procesada.
+[2026-05-09 21:39:45] ERROR: El nombre no puede estar vacío
+[2026-05-09 21:39:45] ERROR: Correo inválido
+[2026-05-09 21:39:45] ERROR: No se puede confirmar una reserva cancelada
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 7 procesada.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 8 procesada.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 9 procesada.
+[2026-05-09 21:39:45] INFO: Éxito: Simulación 10 procesada.
+[2026-05-09 21:39:45] INFO: Fin del ciclo de simulaciones.

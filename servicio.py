@@ -1,27 +1,29 @@
 from abc import ABC, abstractmethod
 
-#Creacion de la clase padre Servicio con nombre y costo base
+# Creacion de la clase padre Servicio con nombre y costo base 
 class Servicio(ABC):
     def __init__(self, nombre_base, costo_base):
         self.nombre_base = nombre_base
         self.costo_base = costo_base
 
-#metodo de tipo abstracto donde se pasa el argumento **Kwargs porque no se tiene conocimeinto la cantidad de argumentos que se van a incluir
+    # Metodo abstracto para asegurar que cada hija implemente su propio calculo 
     @abstractmethod
-    def calcular_costo(self, **kwargs):
+    def calcular_costo(self, cantidad=1):
         pass
 
-#Clase Hija ServicioTransporte y calcular el costo donde se envian los argumentos distancia e impuesto
+# Clase Hija ServicioTransporte: Se ajusta la formula para evitar errores 
 class ServicioTrasporte(Servicio):
-    def calcular_costo(self, distancia=1, impuesto=0.15):
-        return(self.costo_base*distancia)/impuesto
+    def calcular_costo(self, cantidad=1, impuesto=0.15):
+        # Se suma el impuesto al costo base multiplicado por la distancia (cantidad)
+        return (self.costo_base * cantidad) * (1 + impuesto)
 
-#Clase hija ServicioAlojamiento y calcular el costo en base a los argumentos noches y descuento
+# Clase hija ServicioAlojamiento: Se corrige el error de "self" y division por cero 
 class ServicioAlojamiento(Servicio):
-    def calcular_costo(self, noches=1, descuento=0):
-        return (self-self.costo_base*noches)/descuento
+    def calcular_costo(self, cantidad=1, descuento=0):
+        # Se elimina el 'self-' que rompia el codigo y se resta el descuento 
+        return (self.costo_base * cantidad) - descuento
 
-#Clase hija ServicioGuia y calcular el costo en bae al algumento personas
+# Clase hija ServicioGuia: Se mantiene la logica de multiplicar por personas 
 class ServicioGuia(Servicio):
-    def calcular_costo(self, personas=1):
-        return self.costo_base * personas
+    def calcular_costo(self, cantidad=1):
+        return self.costo_base * cantidad
