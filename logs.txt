@@ -28,5 +28,8 @@ def procesar_solicitud(datos):
         print("Sistema listo para la siguiente operación.")
 
 # Prueba de ejecución sin detener el programa
-procesar_solicitud({})
+procesar_solicitud({}) 
+#Buenas tardes 
+
+
 
